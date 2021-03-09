@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 const Home = ()=>{
+    const [data,setData] = useState([]);
+    
     return(
         <div className='home'>
             <div className='card home-card'>
