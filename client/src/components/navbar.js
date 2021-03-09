@@ -1,14 +1,16 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo left">Logo</a>
+        <div className="nav-wrapper white">
+          <Link to="/" className="brand-logo left">Scottagram</Link>
           <ul id="nav-mobile" className="right">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
+            <li><Link to="/signin">Signin</Link></li>
+            <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/create">Create Post</Link></li>
           </ul>
         </div>
       </nav>
