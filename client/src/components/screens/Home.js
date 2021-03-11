@@ -9,7 +9,9 @@ const Home = ()=>{
             }
         }).then(res=>res.json())
         .then(result=>{
-            setData(result.posts)        })
+            // console.log(result) 
+            setData(result) 
+        })
     },[])
 
 
