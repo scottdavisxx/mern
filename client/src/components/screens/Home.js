@@ -14,28 +14,31 @@ const Home = ()=>{
         })
     },[])
 
-
     return(
         <div className='home'>
             {
-                <div className='card home-card'>
-                <h5>Scott</h5>
-                    <div className='card-image'>
-                        <img src='https://i.imgur.com/rP6TgQd.jpeg'/>
-                    </div>
-                    <div className='card-content'>
-                        <i className="material-icons" style={{color: 'red'}}>favorite</i>
-                        <h6>title</h6>
-                        <p>This is an amazing post</p>
-                        <input type='text' placeholder='comment'/>
-                    </div>
-                </div>
+                data.map(item=>{
+                    console.log(item)
+                    return(
+                        <div className='card home-card'>
+                        <h5>{item.postedBy.name}</h5>
+                            <div className='card-image'>
+                                <img src={item.photo}/>
+                            </div>
+                            <div className='card-content'>
+                                <i className="material-icons" style={{color: 'red'}}>favorite</i>
+                                <h6>{item.title}</h6>
+                                <p>{item.body}</p>
+                                <input type='text' placeholder='comment'/>
+                            </div>
+                        </div>
+                    )
+                })
+   
             }
                  
 
         )
-            
-
         </div>
     )
 }
