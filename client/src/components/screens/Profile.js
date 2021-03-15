@@ -1,6 +1,18 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const Profile = ()=>{
+    const [mypics,setPics] = useState([])
+    useEffect(()=>{
+       fetch('/mypost',{
+           headers:{
+               "Authorization":"Bearer " +localStorage.getItem("jwt")
+           }
+       }).then(res=>res.json())
+       .then(result=>{
+        //    console.log(result)
+        setPics(results.mypost)
+       })
+    },[])
     return(
         <div style={{maxWidth: '1400px', margin: '0 auto',}}>
             <div style={{display: 'flex', 
@@ -26,13 +38,20 @@ const Profile = ()=>{
             </div>
 
             <div className='gallery'>
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
-                <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
+                {
+                    mypics.map(item=>{
+                        return(
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
+                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
+                        )
+                    })
+                }
+
 
             </div>
         </div>
