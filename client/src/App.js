@@ -18,7 +18,6 @@ import {reducer,initalState} from './reducers/userReducer'
     const user = JSON.parse(localStorage.getItem("USER"));
     if(user){
       dispatch({type:"USER",payload:user})
-      history.push('/')
     } else {
       history.push('/signin')
     }

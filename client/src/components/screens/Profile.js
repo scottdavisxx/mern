@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
+import {UserContext} from '../../App'
 
 const Profile = ()=>{
     const [mypics,setPics] = useState([])
+    const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
        fetch('/mypost',{
            headers:{
@@ -9,8 +11,7 @@ const Profile = ()=>{
            }
        }).then(res=>res.json())
        .then(result=>{
-        //    console.log(result)
-        setPics(results.mypost)
+        setPics(result.mypost)
        })
     },[])
     return(
@@ -25,7 +26,7 @@ const Profile = ()=>{
                     src='https://i.imgur.com/z2U2iYx.jpg'></img>
                 </div>
                 <div>
-                    <h4>Scott Davis</h4>
+                    <h4>{state?state.name:"loading..."}</h4>
                     <div style={{display: 'flex',
                                  justifyContent: 'space-between',
                                  width: '108%',}}>
@@ -41,13 +42,7 @@ const Profile = ()=>{
                 {
                     mypics.map(item=>{
                         return(
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />,
-                            <img className='item' src='https://i.imgur.com/z2U2iYx.jpg' />
+                            <img key={item._id} className='item' src={item.photo} alt={item.title} />
                         )
                     })
                 }
