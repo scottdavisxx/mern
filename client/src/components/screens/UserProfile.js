@@ -53,4 +53,4 @@ const UserProfile = ()=>{
     )
 }
 
-export default Profile
+export default UserProfile
