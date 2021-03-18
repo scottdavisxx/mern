@@ -1,9 +1,11 @@
 import React,{useEffect, useState, useContext} from 'react'
 import {UserContext} from '../../App'
+import {useParams} from 'react-router-dom'
 
 const UserProfile = ()=>{
     const [mypics,setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
+    const {userid} = useParams
     // useEffect(()=>{
     //    fetch('/mypost',{
     //        headers:{
