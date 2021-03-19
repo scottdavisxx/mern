@@ -8,13 +8,13 @@ const UserProfile = ()=>{
     const {userid} = useParams()
     console.log(userid)
     useEffect(()=>{
-       fetch('/mypost',{
+       fetch(`/user/${userid}`,{
            headers:{
                "Authorization":"Bearer " +localStorage.getItem("jwt")
            }
        }).then(res=>res.json())
        .then(result=>{
-        setPics(result.mypost)
+        console.log(result)
        })
     },[])
     return(
