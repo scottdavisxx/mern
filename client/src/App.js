@@ -20,7 +20,7 @@ import UserProfile from './components/screens/UserProfile'
     if(user){
       dispatch({type:"USER",payload:user})
     } else {
-      history.push('/signin')
+      // history.push('/signin')  This wasn't allowing me to visit user profiles
     }
    },[])
    return(

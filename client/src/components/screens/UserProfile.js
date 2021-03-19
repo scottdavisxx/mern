@@ -1,23 +1,26 @@
-import React,{useEffect, useState, useContext} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import {UserContext} from '../../App'
 import {useParams} from 'react-router-dom'
-
-const UserProfile = ()=>{
+const Profile  = ()=>{
     const [userProfile,setProfile] = useState(null)
+
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
     console.log(userid)
     useEffect(()=>{
        fetch(`/user/${userid}`,{
            headers:{
-               "Authorization":"Bearer " +localStorage.getItem("jwt")
+               "Authorization":"Bearer "+localStorage.getItem("jwt")
            }
        }).then(res=>res.json())
        .then(result=>{
-        console.log(result)
-        setProfile(result)
+          // console.log(result)
+          
+          setProfile(result)
        })
     },[])
+
+    
     return(
       <>
       {userProfile ? 
@@ -62,4 +65,4 @@ const UserProfile = ()=>{
     )
 }
 
-export default UserProfile
+export default Profile
