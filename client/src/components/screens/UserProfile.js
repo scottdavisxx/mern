@@ -6,7 +6,6 @@ const Profile  = ()=>{
 
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
-    console.log(userid)
     useEffect(()=>{
        fetch(`/user/${userid}`,{
            headers:{
