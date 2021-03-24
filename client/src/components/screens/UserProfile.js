@@ -27,7 +27,7 @@ const Profile  = ()=>{
                 "Authorization":"Bearer "+localStorage.getItem('jwt')
             },
             body:JSON.stringify({
-                followID:userid
+                followId:userid
             })
         }).then(res=>res.json())
         .then(data=>{
