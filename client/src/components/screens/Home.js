@@ -116,7 +116,6 @@ const Home = ()=>{
         <div className='home'>
             {
                 data.map(item=>{
-                    console.log(item)
                     return(
                         <div className='card home-card' key={item._id}>
                             <h5><Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile/"}>{item.postedBy.name}</Link> {item.postedBy._id == state._id 
