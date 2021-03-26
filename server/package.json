@@ -11,6 +11,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.9.27",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1"
   }
 }
