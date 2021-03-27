@@ -10,6 +10,7 @@ const NavBar = () => {
       return [
         <li><Link to="/profile">Profile</Link></li>,
         <li><Link to="/create">Create Post</Link></li>,
+        <li><Link to="/myfollowingpost">My Follows</Link></li>,
         <li>
           <button className="btn waves-effect waves-light blue darken"
             onClick={()=>{
