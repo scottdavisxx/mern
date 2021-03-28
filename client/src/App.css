@@ -72,3 +72,7 @@ nav .brand-logo {
       right: 20px !important;
       left: auto !important;
     }
+
+    .material-icons:hover {
+      cursor:pointer;
+    }
