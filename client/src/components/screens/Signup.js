@@ -10,7 +10,7 @@ const SignUp = ()=>{
     const [email, setEmail] = useState("")
     const [image,setImage] = useState("")
     const [url,setUrl] = useState("")
-    useEffect(()=> {
+    useEffect(()=>{
         if(url){
             uploadFields()
         }
@@ -90,7 +90,7 @@ const SignUp = ()=>{
                     placeholder="password"
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)} />
-                 <div className="file-field input-field">
+                <div className="file-field input-field">
                 <div className="btn waves-effect waves-light blue darken">
                     <span>Upload Profile Pic</span>
                     <input type="file"
