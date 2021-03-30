@@ -12,7 +12,7 @@ const requireLogin = require('../middleware/requireLogin')
 // })
 
 router.post('/signup',(req,res)=>{
-    const {name,email,password} = req.body
+    const {name,email,password,pic} = req.body
     if(!name || !email || !password){
         return res.status(422).json({error: "please enter all required fields"})
     }
@@ -26,7 +26,8 @@ router.post('/signup',(req,res)=>{
             const user = new User({
                 name,
                 email,
-                password:hashedpassword
+                password:hashedpassword,
+                pic
             }) 
         
             user.save()
@@ -59,7 +60,7 @@ router.post('/signin',(req,res)=>{
                 // res.json({message:"Successfully signed in"})
                 const token = jwt.sign({_id:savedUser._id}, JWT_SECRET)
                 const {_id, name, email,followers, following} = savedUser
-                res.json({token,user:{_id, name, email, followers, following}})
+                res.json({token,user:{_id, name, email, followers, following,pic}})
 
             }
             else{

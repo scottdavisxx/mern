@@ -89,7 +89,7 @@ const Profile  = ()=>{
                      maxWidth: '550px',}}>
             <div>
                 <img style={{width: '160px', height: '160px', borderRadius: '80px'}}
-                src='https://i.imgur.com/z2U2iYx.jpg'></img>
+                src={userProfile.user.pic}></img>
             </div>
             <div>
                 <h4>{userProfile.user.name}</h4>

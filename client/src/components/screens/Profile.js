@@ -23,7 +23,7 @@ const Profile = ()=>{
                          maxWidth: '550px',}}>
                 <div>
                     <img style={{width: '160px', height: '160px', borderRadius: '80px'}}
-                    src='https://i.imgur.com/z2U2iYx.jpg'></img>
+                    src={state?state.pic:"https://res.cloudinary.com/scottdavisxx/image/upload/v1617075577/ProfileDefault_zmett8.png"}></img>
                 </div>
                 <div>
                     <h4>{state?state.name:"loading..."}</h4>
