@@ -125,6 +125,9 @@ const Home = ()=>{
                             onClick={()=>deletePost(item._id)}
                             >delete</i>
                             }</h5>
+                            {/* 
+                            This code works but prints only the default image, not the image of each user. 
+                            <img style={{width:"50px", height:"50px", borderRaduis:"50%"}} src={state.pic}></img> */}
                             <div className='card-image'>
                                 <img src={item.photo}/>
                             </div>
