@@ -39,7 +39,9 @@ const Profile = ()=>{
                     </div>
 
                 </div>
-                    <button className="btn waves-effect waves-light blue darken">
+                    <button style={{
+                        margin:"0 0 20px 20px"
+                    }}className="btn waves-effect waves-light blue darken">
                         Update Profile Pic
                     </button>
                 </div>
