@@ -3,7 +3,6 @@ import {UserContext} from '../../App'
 
 const Profile = ()=>{
     const [image,setImage] = useState("")
-    const [url,setUrl] = useState("")
     const [mypics,setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
@@ -28,9 +27,20 @@ const Profile = ()=>{
         })
         .then(res=>res.json())
         .then(data=>{
-          setUrl(data.url)          
-          localStorage.setItem("user",JSON.stringify({...state,pic:data.url}))
-          dispatch({type:"UPDATEPIC",payload:data.url})
+          fetch('/updatepic',{
+              method:"put",
+              headers:{
+                  "Content-Type":"application/json",
+                  "Authorization":"Bearer "+localStorage.getItem("jwt")
+              },
+              body:JSON.stringify({
+                  pic:data.url
+                })
+          }).then(res=>res.json())
+          .then(result=>{
+            localStorage.setItem("user",JSON.stringify({...state,pic:result.pic}))
+            dispatch({type:"UPDATEPIC",payload:result.pic})
+        })
         })
         .catch(err=>{
           console.log(err)
